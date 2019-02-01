@@ -4,7 +4,7 @@ require 'pry'
 class Store
 
     attr_accessor :store_name, :location
-
+    # aka
     # read method/getter
     # def store_name
     #     @store_name
@@ -22,7 +22,7 @@ class Store
         @store_name = store_name
         @loction = location
         # here...self refers to each instance created
-        # and gets added to the class varibale @@all
+        # and gets added to the class variable @@all
         # which is an array.
         @@all << self
     end
@@ -118,41 +118,3 @@ class Store
     #    "Nike Air More Uptempo",
     #    "Nike Air Max 90's"]
 end
-
-# def wheres_the_store
-#     p "Type in a Store Name:"
-#     input = gets.chomp.downcase
-#
-#     Store.all_stores.each_index do |store|
-#         if store == input
-#             "#{self.location}"
-#         else
-#             "Invalid Store. Please Try Again"
-#         end
-#     end
-# end
-
-# def wheres_the_store?
-#     p "Type in a Store Name: "
-#     input = gets.chomp.downcase
-#
-#     # while input != "exit"
-#
-#     Store.all_stores.select { |u| u == input  }
-#             #     puts s
-#             # elsif input == "exit"
-#             #     # break
-#             # else "Invalid Store. Please Try Again or 'exit' to quit."
-#             # end
-#         # end
-#     # end # while loop
-# end
-
-# [5] pry(main)> flight_club.wheres_the_store.map{|x| x.customer.cust_name}
-#=> ["Chris", "Greg"]
-
-# [6] pry(main)> nike_soho.wheres_the_store.map{|x| x.customer.cust_name}
-#=> []
-
-# [7] pry(main)> stadium_goods.wheres_the_store.map{|x| x.customer.cust_name}
-# => ["Woody"]

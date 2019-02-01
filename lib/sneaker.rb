@@ -21,3 +21,5 @@ class Sneaker
     end
 
 end
+
+# THIS IS THE JOIN MODEL

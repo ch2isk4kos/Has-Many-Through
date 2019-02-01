@@ -20,8 +20,7 @@ ty = Customer.new("Ty", 10)
 bones = Customer.new("Bones", 12)
 skee = Customer.new("Skee", 10)
 
-chris.buy_sneaker("Bred 11's", flight_club)
-
+#chris.buy_sneaker("Bred 11's", flight_club)
 
 # Sneaker instances
 Sneaker.new("Bred 11's", flight_club, chris)
