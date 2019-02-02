@@ -4,6 +4,7 @@ require 'pry'
 class Store
 
     attr_accessor :store_name, :location
+    
     # aka
     # read method/getter
     # def store_name
@@ -33,9 +34,9 @@ class Store
 
     def find_store
         # looping through the join and letting Store know its "us" == Sneaker
-        Sneaker.all_sneakers.select do |store|
+        Sneaker.all_sneakers.select do |sneaker|
             # .store is an instance variable inside of sneaker
-            store.store == self
+            sneaker.store == self
         end
     end
 
@@ -59,8 +60,8 @@ class Store
 =end
 
     def store_customers
-        find_store.map do |cust|
-            cust.customer
+        find_store.map do |sneaker|
+            sneaker.customer
         end
     end
 
@@ -93,8 +94,8 @@ class Store
          #<Customer:0x007f92b4988ea8 @cust_name="Skee", @shoe_size=10>]
 
     def store_brands
-        find_store.map do |brand|
-            brand.brand
+        find_store.map do |sneaker|
+            sneaker.brand
         end
     end
 
@@ -117,4 +118,11 @@ class Store
     #    "Air Jordan Spizike",
     #    "Nike Air More Uptempo",
     #    "Nike Air Max 90's"]
+
+    def store_price
+        find_store.map do |sneaker|
+            "#{sneaker.brand}: $#{sneaker.price}"
+        end
+    end
+
 end

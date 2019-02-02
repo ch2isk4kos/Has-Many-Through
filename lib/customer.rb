@@ -5,11 +5,11 @@ class Customer
 
     @@all = []
 
-    attr_accessor :cust_name, :shoe_size
+    attr_accessor :name, :size
 
-    def initialize(cust_name, shoe_size)
-        @cust_name = cust_name
-        @shoe_size = shoe_size
+    def initialize(name, size)
+        @name = name
+        @size = size
 
         @@all << self
     end
@@ -18,22 +18,33 @@ class Customer
         @@all
     end
 
-    # create customer
+    # create customer instance
     def buy_sneaker(brand, store)
         sneaker = Sneaker.new(brand, store, self)
+        sneaker.save
     end
 
     def find_customer
         # looping through the join and letting Sneaker class know its "us" == Customer
-        Sneaker.all_sneakers.select do |cust|
-            cust.customer == self
+        Sneaker.all_sneakers.select do |sneaker|
+            sneaker.customer == self
         end
     end
 
     def customer_sneakers
-        find_customer.map do |cust|
-            cust.brand
+        find_customer.map do |sneaker|
+            sneaker.brand
         end
+    end
+
+    def customer_color_way
+        find_customer.select do |sneaker|
+            sneaker.color_way
+        end
+    end
+
+    def customer_size
+        self.size.to_s
     end
 
 end
